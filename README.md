@@ -1,3 +1,28 @@
+# Cosmic Tales
+
+## Learn about the solar system
+
+### Planet Data
+https://api.le-systeme-solaire.net/en/
+sideralorbit = revolution (Sideral orbital time for body around another one (the Sun or a planet) in earth day.)
+sideralRotation = rotation (Sideral rotation, necessary time to turn around itself, in hour.)
+https://api.le-systeme-solaire.net/rest.php/bodies?data=englishName%2C%20moons%2C%20sideralOrbit%2C%20sideralRotation%2C%20bodyType
+
+<!-- import axios from "axios";
+
+const options = {
+  method: 'GET',
+  url: 'https://api.le-systeme-solaire.net/rest.php/bodies',
+  params: {
+    data: 'englishName, moons, sideralOrbit, sideralRotation, bodyType'
+  }
+};
+
+axios.request(options).then(function (response) {
+  console.log(response.data);
+}).catch(function (error) {
+  console.error(error);
+}); -->
 <p align="center">
   <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
     <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />

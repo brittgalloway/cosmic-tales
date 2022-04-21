@@ -1,0 +1,327 @@
+@import url("https://fonts.googleapis.com/css2?family=Expletus+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Expletus+Sans&family=Lato:wght@300&display=swap");
+:root {
+  --background-color: #2B0758;
+  --sun-yellow: #F2D122;
+  --mercury-grey: #C4C4C4;
+  --venus-orange: #FA8418;
+  --earth-blue: #5F6EF1;
+  --mars-red: #BB0909;
+  --jupiter-brown: #9A6431;
+  --saturn-purple: #79319A;
+  --uranus-green: #43BAA4;
+  --neptune-blue: #438FBA;
+  --pluto-brown: #826F5E;
+  --asteriod-brown: #79634E;
+  --star-white: #C4C4C4;
+  --titles: 'Expletus Sans', cursive;
+  --text: 'Lato', sans-serif;
+}
+
+body {
+  z-index: -50;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color);
+  color: white;
+  font-family: var(--text);
+}
+
+h1 {
+  font-family: 'Expletus Sans', cursive;
+  text-align: center;
+  z-index: -1;
+  width: 100vw;
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-family: 'Expletus Sans', cursive;
+  text-align: center;
+  z-index: -1;
+  width: 100vw;
+  font-size: 2rem;
+}
+
+#sun {
+  border-radius: 50%;
+  position: absolute;
+  top: calc(50% - var(--offset));
+  left: calc(50% - var(--offset));
+  background-color: var(--sun-yellow);
+  -webkit-box-shadow: 0px 0px 33px 21px rgba(242, 209, 34, 0.17);
+          box-shadow: 0px 0px 33px 21px rgba(242, 209, 34, 0.17);
+  width: 88px;
+  height: 88px;
+  top: calc(50% - 44px);
+  left: calc(50% - 44px);
+}
+
+#sun:hover {
+  cursor: pointer;
+}
+
+@-webkit-keyframes orbit {
+  from {
+    -webkit-transform: rotate(0deg) translateX(var(--size)) rotate(0deg);
+            transform: rotate(0deg) translateX(var(--size)) rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg) translateX(var(--size)) rotate(-360deg);
+            transform: rotate(360deg) translateX(var(--size)) rotate(-360deg);
+  }
+}
+
+@keyframes orbit {
+  from {
+    -webkit-transform: rotate(0deg) translateX(var(--size)) rotate(0deg);
+            transform: rotate(0deg) translateX(var(--size)) rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg) translateX(var(--size)) rotate(-360deg);
+            transform: rotate(360deg) translateX(var(--size)) rotate(-360deg);
+  }
+}
+
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+#mercury {
+  --offset: 4px;
+  border-radius: 50%;
+  position: absolute;
+  top: calc(50% - var(--offset));
+  left: calc(50% - var(--offset));
+  background-color: var(--mercury-grey);
+  width: 8px;
+  height: 8px;
+  --size: 75px;
+  -webkit-animation: orbit 14.5s linear infinite;
+          animation: orbit 14.5s linear infinite;
+}
+
+#mercury:hover {
+  cursor: pointer;
+}
+
+#venus {
+  --offset: 5px;
+  border-radius: 50%;
+  position: absolute;
+  top: calc(50% - var(--offset));
+  left: calc(50% - var(--offset));
+  background-color: var(--venus-orange);
+  width: 10px;
+  height: 10px;
+  --size: 100px;
+  -webkit-animation: orbit 36.7s linear infinite;
+          animation: orbit 36.7s linear infinite;
+}
+
+#venus:hover {
+  cursor: pointer;
+}
+
+#earth {
+  --offset: 5.5px;
+  border-radius: 50%;
+  position: absolute;
+  top: calc(50% - var(--offset));
+  left: calc(50% - var(--offset));
+  background-color: var(--earth-blue);
+  width: 11px;
+  height: 11px;
+  --size: 125px;
+  -webkit-animation: orbit  60s linear infinite;
+          animation: orbit  60s linear infinite;
+}
+
+#earth:hover {
+  cursor: pointer;
+}
+
+#mars {
+  --offset: 4.5px;
+  border-radius: 50%;
+  position: absolute;
+  top: calc(50% - var(--offset));
+  left: calc(50% - var(--offset));
+  background-color: var(--mars-red);
+  width: 9px;
+  height: 9px;
+  --size: 150px;
+  -webkit-animation: orbit  112.9s linear infinite;
+          animation: orbit  112.9s linear infinite;
+}
+
+#mars:hover {
+  cursor: pointer;
+}
+
+#jupiter {
+  --offset: 25px;
+  border-radius: 50%;
+  position: absolute;
+  top: calc(50% - var(--offset));
+  left: calc(50% - var(--offset));
+  background-color: var(--jupiter-brown);
+  width: 50px;
+  height: 50px;
+  --size: 270px;
+  -webkit-animation: orbit  711.6s linear infinite;
+          animation: orbit  711.6s linear infinite;
+}
+
+#jupiter:hover {
+  cursor: pointer;
+}
+
+#saturn {
+  --offset: 20px;
+  border-radius: 50%;
+  position: absolute;
+  top: calc(50% - var(--offset));
+  left: calc(50% - var(--offset));
+  background-color: var(--saturn-purple);
+  width: 40px;
+  height: 40px;
+  --size: 370px;
+  -webkit-animation: orbit  1767s linear infinite;
+          animation: orbit  1767s linear infinite;
+}
+
+#saturn:hover {
+  cursor: pointer;
+}
+
+#uranus {
+  --offset: 15px;
+  border-radius: 50%;
+  position: absolute;
+  top: calc(50% - var(--offset));
+  left: calc(50% - var(--offset));
+  background-color: var(--uranus-green);
+  width: 30px;
+  height: 30px;
+  -webkit-transform: translateX(470px);
+          transform: translateX(470px);
+  --size: 470px;
+  -webkit-animation: orbit  5040s linear infinite;
+          animation: orbit  5040s linear infinite;
+}
+
+#uranus:hover {
+  cursor: pointer;
+}
+
+#neptune {
+  --offset: 13.5px;
+  border-radius: 50%;
+  position: absolute;
+  top: calc(50% - var(--offset));
+  left: calc(50% - var(--offset));
+  background-color: var(--neptune-blue);
+  width: 27px;
+  height: 27px;
+  --size: 550px;
+  -webkit-animation: orbit  9888s linear infinite;
+          animation: orbit  9888s linear infinite;
+}
+
+#neptune:hover {
+  cursor: pointer;
+}
+
+#pluto {
+  border-radius: 50%;
+  position: absolute;
+  top: calc(50% - var(--offset));
+  left: calc(50% - var(--offset));
+  background-color: var(--pluto-brown);
+  width: 7px;
+  height: 7px;
+  top: calc(50% - 3.5px);
+  left: calc(50% - 3px);
+  --size: 650px;
+  -webkit-animation: orbit  14880s linear infinite;
+          animation: orbit  14880s linear infinite;
+}
+
+#pluto:hover {
+  cursor: pointer;
+}
+
+#asteriodBelt {
+  border-radius: 50%;
+  position: absolute;
+  top: calc(50% - var(--offset));
+  left: calc(50% - var(--offset));
+  border: 6px dotted var(--asteriod-brown);
+  width: 339px;
+  height: 339px;
+  top: calc(50% - 169.5px);
+  left: calc(50% - 169.5px);
+  --size: 0px;
+  -webkit-animation: rotate  180s linear infinite;
+          animation: rotate  180s linear infinite;
+  z-index: -4;
+}
+
+#asteriodBelt:hover {
+  cursor: pointer;
+}
+
+.star {
+  position: relative;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: .9em;
+  margin-right: .9em;
+  margin-bottom: 1.2em;
+  border-right: .3em solid transparent;
+  border-bottom: 0.7em solid var(--star-white);
+  border-left: .3em solid transparent;
+  /* Controlls the size of the stars. */
+  font-size: 4px;
+}
+
+.star:before, .star:after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: .6em;
+  left: -1em;
+  border-right: 1em solid transparent;
+  border-bottom: 0.7em solid var(--star-white);
+  border-left: 1em solid transparent;
+  -webkit-transform: rotate(-35deg);
+          transform: rotate(-35deg);
+}
+
+.star:after {
+  -webkit-transform: rotate(35deg);
+          transform: rotate(35deg);
+}
+/*# sourceMappingURL=global.css.map */
