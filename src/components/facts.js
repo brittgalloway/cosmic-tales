@@ -1,14 +1,14 @@
 import * as React from "react"
 import "../global.scss"
 
-export default function Facts () {
+export default function Facts (props) {
     return (
        <article>
             <h1>
-               {planet.name}
+               {props.name}
             </h1>
             <section>
-                {planet.Facts}
+                {props.facts}
             </section>
        </article> 
     )

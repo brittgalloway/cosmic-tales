@@ -2,19 +2,21 @@ import * as React from "react"
 import { Link } from 'gatsby';
 import "../global.scss"
 
-export default function Story () {
+export default function Story (prop) {
     return (
        <article>
             <h1>
-               {planet.name}
+                PLANET NAME
+                {prop.planetName}
             </h1>
             <section>
-                {planet.story}
-            </section>
-            <Link to={planet.related}>
+                <p>some text</p>
+                {prop.story}
+             </section>
+            <Link to={prop.related}>
                 <p>Tell me another one</p>
             </Link>
        </article> 
     )
-}
+};
 
