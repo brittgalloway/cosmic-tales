@@ -5,21 +5,11 @@ import '../../global.scss';
 
 const StyledDiv = styled.div`
 
-    .mercuryImage {
-        border-radius: 50%;
-        width: 50vw;
-        height: 50vw;
+    .solarObject {
         background-color: var(--mercury-grey);
-        align-self: end;
-        &:hover{
-            cursor: default;
-        }
     }
     .planet {
-        display: flex;
         flex-direction: row-reverse;
-        width: 100%;
-        height: 100%;
     }
 `
 export default function mercuryStory () {
@@ -27,7 +17,7 @@ export default function mercuryStory () {
         <StyledDiv>
             <main className='planet'>
                 
-                <span className='mercuryImage'></span>
+                <span className='solarObject'></span>
                 
                 <section className='story'>   
                     <h1>

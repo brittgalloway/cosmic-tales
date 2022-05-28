@@ -5,6 +5,7 @@ import '../../global.scss';
 
 const StyledDiv = styled.div`
     .solarObject {
+        --diameter: 25rem;
         background-color: var(--sun-yellow);
         box-shadow: 0px 0px 50px 30px rgba(242, 209, 34, 0.25);
     }
@@ -23,12 +24,11 @@ const StyledDiv = styled.div`
             cursor: pointer;
         }
     }
-
 `
 export default function Sun () {
     return(
         <StyledDiv>
-            <main className='planet'>
+            <main className='index'>
                 <h1 className='hide'>
                     Sun
                 </h1>

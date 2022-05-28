@@ -5,6 +5,7 @@ import '../../global.scss';
 
 const StyledDiv = styled.div`
     .solarObject {
+        --diameter: 25rem;
         background-color: var(--mercury-grey);
     }
     a {
@@ -24,22 +25,16 @@ const StyledDiv = styled.div`
     }
 
 `
-export default function mercury () {
+export default function Mercury () {
     return(
         <StyledDiv>
-            <main className='planet'>
+            <main className='index'>
                 <h1 className='hide'>
                     mercury
                 </h1>
                 <Link to ='/mercury/story'>Tell me a story</Link>
                 <span className='solarObject'></span>
                 <Link to ='/mercury/facts' >Tell me the facts</Link>
-                
-                <section id = 'facts' className='hide'>
-                    <article>
-                        <p>some text</p>
-                    </article> 
-                </section>
             </main>
         </StyledDiv>
     )

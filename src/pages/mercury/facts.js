@@ -4,15 +4,8 @@ import styled from 'styled-components';
 import '../../global.scss';
 
 const StyledDiv = styled.div`
-    .mercuryImage {
-        border-radius: 50%;
-        width: 50vw;
-        height: 50vw;
+    .solarObject {
         background-color: var(--mercury-grey);
-        align-self: end;
-        &:hover{
-            cursor: default;
-        }
     }
     .planet {
         display: flex;
@@ -27,7 +20,7 @@ export default function mercuryFacts () {
         <StyledDiv>
             <main className='planet'>
                 
-                <span className='mercuryImage'></span>
+                <span className='solarObject'></span>
                 
                 <section className='facts'>   
                     <h1>

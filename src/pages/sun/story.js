@@ -5,30 +5,21 @@ import '../../global.scss';
 
 const StyledDiv = styled.div`
 
-    .sunImage {
-        border-radius: 50%;
-        width: 50vw;
-        height: 50vw;
+    .solarObject {
         background-color: var(--sun-yellow);
         box-shadow: 0px 0px 50px 30px rgba(242, 209, 34, 0.25);
-        align-self: end;
-        &:hover{
-            cursor: default;
-        }
     }
     .planet {
-        display: flex;
         flex-direction: row-reverse;
-        width: 100%;
-        height: 100%;
-    }
+        justify-content: start;
+      }
 `
 export default function SunStory () {
     return(
         <StyledDiv>
             <main className='planet'>
                 
-                <span className='sunImage'></span>
+                <span className='solarObject'></span>
                 
                 <section className='story'>   
                     <h1>
