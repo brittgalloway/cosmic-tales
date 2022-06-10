@@ -7,7 +7,7 @@ import '../../global.scss';
 
 const StyledDiv = styled.div`
     .solarObject {
-        background-color: var(--mercury-grey);
+        background-color: var(--jupiter-brown);
     }
     .planet {
         display: flex;
@@ -17,7 +17,7 @@ const StyledDiv = styled.div`
       }
 
 `
-export default function mercuryFacts () {
+export default function jupiterFacts () {
     return(
         <Layout>
             <StyledDiv>
@@ -25,12 +25,12 @@ export default function mercuryFacts () {
                     
                     <span className='solarObject'></span>
                     <Facts
-                        name = 'mercury'
-                        majorMoons = '0'
-                        confirmMoons = '0'
-                        rotation = '59 days'
-                        revolution = '88 days'
-                        unique = 'no atmosphere'
+                        name = 'jupiter'
+                        majorMoons = '2'
+                        confirmMoons = '2'
+                        rotation = ' days'
+                        revolution = '11.86 years'
+                        unique = 'Jupiter is the largest planet.'
                     />
                 </section>
             </StyledDiv>

@@ -21,10 +21,10 @@ export default function SunFacts () {
                 
                 <span className='solarObject'></span>
                 
-                <section className='facts'>   
-                    <h1>
-                        The Sun
-                    </h1>
+                <section className='facts'>  
+                    <Link to='../' >
+                        <h1>The Sun</h1>
+                    </Link>
                     <article>
                         <ul>
                             <li>
@@ -41,7 +41,7 @@ export default function SunFacts () {
                             </li>
                         </ul>
                         <dl>
-                            <dt>Fun Fact</dt>
+                            <dt>Unique Fact</dt>
                             <dd>Everything in our solar system revovles around the sun. All 9 planets, all the dwarf planets, asteriods, and comets. But did you know millions of suns (stars) have their own solar systems and are moving in a large circle in the Milky Way? </dd>
                         </dl>
                     </article>

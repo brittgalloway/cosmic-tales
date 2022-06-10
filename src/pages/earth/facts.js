@@ -25,7 +25,7 @@ export default function earthFacts () {
                 <span className='solarObject'></span>
                 <Facts
                     majorMoons = '1'
-                    confirmedMoons = '1'
+                    confirmMoons = '1'
                     rotation = '24 hours'
                     revolution = '365 days'
                     unique = 'Only known planet with intelligent life.'

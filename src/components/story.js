@@ -6,8 +6,7 @@ export default function Story (prop) {
     return (
        <article>
             <h1>
-                PLANET NAME
-                {prop.planetName}
+                <Link to='../' >{props.name}</Link> 
             </h1>
             <section>
                 <p>some text</p>

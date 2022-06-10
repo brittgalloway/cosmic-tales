@@ -7,7 +7,7 @@ import '../../global.scss';
 
 const StyledDiv = styled.div`
     .solarObject {
-        background-color: var(--mercury-grey);
+        background-color: var(--venus-orange);
     }
     .planet {
         display: flex;
@@ -17,7 +17,7 @@ const StyledDiv = styled.div`
       }
 
 `
-export default function mercuryFacts () {
+export default function venusFacts () {
     return(
         <Layout>
             <StyledDiv>
@@ -25,12 +25,12 @@ export default function mercuryFacts () {
                     
                     <span className='solarObject'></span>
                     <Facts
-                        name = 'mercury'
+                        name = 'venus'
                         majorMoons = '0'
                         confirmMoons = '0'
-                        rotation = '59 days'
-                        revolution = '88 days'
-                        unique = 'no atmosphere'
+                        rotation = '116 days'
+                        revolution = '225 days'
+                        unique = 'Venus rotates on its axis backward.'
                     />
                 </section>
             </StyledDiv>

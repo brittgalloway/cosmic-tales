@@ -7,7 +7,7 @@ import '../../global.scss';
 
 const StyledDiv = styled.div`
     .solarObject {
-        background-color: var(--mercury-grey);
+        background-color: var(--saturn-purple);
     }
     .planet {
         display: flex;
@@ -17,7 +17,7 @@ const StyledDiv = styled.div`
       }
 
 `
-export default function mercuryFacts () {
+export default function saturnFacts () {
     return(
         <Layout>
             <StyledDiv>
@@ -25,12 +25,12 @@ export default function mercuryFacts () {
                     
                     <span className='solarObject'></span>
                     <Facts
-                        name = 'mercury'
-                        majorMoons = '0'
-                        confirmMoons = '0'
-                        rotation = '59 days'
-                        revolution = '88 days'
-                        unique = 'no atmosphere'
+                        name = 'saturn'
+                        majorMoons = '2'
+                        confirmMoons = '2'
+                        rotation = ' days'
+                        revolution = ' days'
+                        unique = 'saturn has ice, and is thought to have been a living planet similar to Earth.'
                     />
                 </section>
             </StyledDiv>

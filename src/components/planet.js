@@ -5,11 +5,8 @@ import Layout from '../components/layout';
 import '../global.scss';
 
 const StyledDiv = styled.div`
-    .solarObject {
-        --diameter: 25rem;
-    }
     a {
-    margin: 2rem;
+    margin: 3vh;
     width: fit-content;
     align-self: center;
     cursor: pointer;
