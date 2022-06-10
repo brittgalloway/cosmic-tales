@@ -1,6 +1,8 @@
 import * as React from 'react';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
+import Layout from '../../components/layout';
+import Facts from '../../components/facts';
+
 import '../../global.scss';
 
 const StyledDiv = styled.div`
@@ -17,32 +19,20 @@ const StyledDiv = styled.div`
 `
 export default function mercuryFacts () {
     return(
-        <StyledDiv>
-            <main className='planet'>
-                
-                <span className='solarObject'></span>
-                
-                <section className='facts'>   
-                    <h1>
-                        Mercury
-                    </h1>
-                    <article>
-                        <dl>
-                            <dt>Major Moons: </dt>
-                            <dd>0</dd>
-                            <dt>Confirmed moons:</dt>
-                            <dd>0</dd>
-                            <dt>Rotation</dt>
-                            <dd></dd>
-                            <dt>Revolutions:</dt>
-                            <dd></dd>
-                            <dt>Unique Fact: </dt>
-                            <dd></dd>
-                        </dl>
-                    </article>
-                    <Link to = '/'>Show me the Solar System</Link>
-                </section> 
-            </main>
-        </StyledDiv>
+        <Layout>
+            <StyledDiv>
+                <section className='planet'>
+                    
+                    <span className='solarObject'></span>
+                    <Facts
+                        majorMoons = '0'
+                        confirmedMoons = '0'
+                        rotation = 'x days'
+                        revolution = 'x days'
+                        unique = 'no atmosphere'
+                    />
+                </section>
+            </StyledDiv>
+        </Layout>
     )
   }

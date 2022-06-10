@@ -284,15 +284,15 @@ h2 {
     text-decoration: none;
   }
 }
-section.story{
+.story{
   @include section;
 }
-section.facts{
+.facts{
   @include section;
   text-align: right;
 }
 .solarObject {
-  --diameter: 25em;
+  --diameter: 50vw;
   border-radius: 50%;
   width: var(--diameter);
   height: var(--diameter);
@@ -302,6 +302,12 @@ section.facts{
   }
 }
 .planet {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.index {
   display: flex;
   flex-direction: column;
   justify-content: end;

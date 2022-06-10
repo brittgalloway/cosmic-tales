@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet"
 
 
 
-export default function Layout(props) {
+export default function Layout({children}) {
   return(
   <>
       <Helmet htmlAttributes={{lang: 'en',}}>
@@ -13,7 +13,8 @@ export default function Layout(props) {
         <meta name="description" content="Learn about the solar system 1 story at a time." />
         {/* <link rel="canonical" href="https://sleepygallows.com" /> */}
       </Helmet>
-      <MainNavigation />
+      {/* <MainNavigation /> */}
+      <main>{children}</main>
 </>
   )
 }
