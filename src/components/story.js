@@ -2,7 +2,7 @@ import * as React from "react"
 import { Link } from 'gatsby';
 import "../global.scss"
 
-export default function Story (prop) {
+export default function Story (props) {
     return (
        <article>
             <h1>
@@ -10,11 +10,11 @@ export default function Story (prop) {
             </h1>
             <section>
                 <p>some text</p>
-                {prop.story}
+                {props.story}
              </section>
-            <Link to={prop.related}>
+            {/* <Link to={prop.related}>
                 <p>Tell me another one</p>
-            </Link>
+            </Link> */}
        </article> 
     )
 };

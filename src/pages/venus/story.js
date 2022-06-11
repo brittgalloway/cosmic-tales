@@ -6,13 +6,13 @@ import '../../global.scss';
 const StyledDiv = styled.div`
 
     .solarObject {
-        background-color: var(--mercury-grey);
+        background-color: var(--venus-orange);
     }
     .planet {
         flex-direction: row-reverse;
     }
 `
-export default function mercuryStory () {
+export default function venusStory () {
     return(
         <StyledDiv>
             <main className='planet'>
@@ -20,13 +20,16 @@ export default function mercuryStory () {
                 <span className='solarObject'></span>
                 
                 <section className='story'>   
-                    <h1>
-                        Mercury
-                    </h1>
+                    <Link to='../' > 
+                        <h1>
+                            Venus
+                        </h1>
+                    </Link> 
                     <article>
-                        <p>Our Mother</p>
-                        <p>Our guide throughout the universe. <br/> All matter will follow the circular flow.</p>
-                        <p>As we go around and around the Milky Way.</p>
+                        <p>In the beginning, Venus had a <span id='atmoshere'>calm atmosphere.</span></p>
+                        <p>One day a Mercury-sized mass smashed into Venus. The force was enough to <span id='backward'>spin Venus backwards</span></p>
+                        <p>Since then, Venus' clouds trapped in the sun's heat and volcanos errupted without warning.</p>
+                        <p>From a far, the violence is a beautiful orange glow.</p>
                     </article>
                 </section> 
             </main>

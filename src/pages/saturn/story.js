@@ -18,15 +18,20 @@ export default function mercuryStory () {
             <main className='planet'>
                 
                 <span className='solarObject'></span>
-                
+                <span className='rings'></span>
+                <Link to='../' ><span className='titan'></span></Link>
+
                 <section className='story'>   
-                    <h1>
-                        Mercury
-                    </h1>
+                    <Link to='../' > 
+                        <h1>
+                            Saturn
+                        </h1>
+                    </Link>
                     <article>
-                        <p>Our Mother</p>
-                        <p>Our guide throughout the universe. <br/> All matter will follow the circular flow.</p>
-                        <p>As we go around and around the Milky Way.</p>
+                        <p>Saturn loved Jupiter for its strength.</p>
+                        <p>But Jupiter pulled in a beautiful frozen planet named Callisto and only had eyes for them.</p>
+                        <p>In an attempt to be more impressive, Saturn started collecting more stardust and planets of its own.</p>
+                        <p>Now Saturn has amazing rings admired by everyone else.</p>
                     </article>
                 </section> 
             </main>

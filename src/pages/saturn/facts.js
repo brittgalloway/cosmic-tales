@@ -27,10 +27,10 @@ export default function saturnFacts () {
                     <Facts
                         name = 'saturn'
                         majorMoons = '2'
-                        confirmMoons = '2'
-                        rotation = ' days'
-                        revolution = ' days'
-                        unique = 'saturn has ice, and is thought to have been a living planet similar to Earth.'
+                        confirmMoons = '82'
+                        rotation = '10h 40m'
+                        revolution = '29.46 years'
+                        unique = 'Saturn has thousands of rings. It is made of asteriods, dust, and other space matter.'
                     />
                 </section>
             </StyledDiv>

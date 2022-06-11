@@ -26,11 +26,11 @@ export default function uranusFacts () {
                     <span className='solarObject'></span>
                     <Facts
                         name = 'uranus'
-                        majorMoons = '2'
-                        confirmMoons = '2'
-                        rotation = ' days'
-                        revolution = ' days'
-                        unique = 'uranus has ice, and is thought to have been a living planet similar to Earth.'
+                        majorMoons = '1'
+                        confirmMoons = '27'
+                        rotation = '17h 14m'
+                        revolution = '84 years'
+                        unique = ''
                     />
                 </section>
             </StyledDiv>

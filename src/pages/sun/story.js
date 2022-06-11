@@ -21,10 +21,12 @@ export default function SunStory () {
                 
                 <span className='solarObject'></span>
                 
-                <section className='story'>   
-                    <h1>
-                        The Sun
-                    </h1>
+                <section className='story'> 
+                    <Link to='../' > 
+                        <h1>
+                            The Sun
+                        </h1>
+                    </Link>  
                     <article>
                         <p>Our Mother</p>
                         <p>Our guide throughout the universe. <br/> All matter will follow the circular flow.</p>

@@ -26,11 +26,11 @@ export default function plutoFacts () {
                     <span className='solarObject'></span>
                     <Facts
                         name = 'pluto'
-                        majorMoons = '2'
-                        confirmMoons = '2'
-                        rotation = ' days'
-                        revolution = ' days'
-                        unique = 'pluto has ice, and is thought to have been a living planet similar to Earth.'
+                        majorMoons = '1'
+                        confirmMoons = '5'
+                        rotation = '248 years'
+                        revolution = '6 days'
+                        unique = "Pluto is the smallest planet and on a slightly different plane than the other planets. As such it is contraversial planet, offically being a dwarf planet, though it doesn't fully match those requirements either."
                     />
                 </section>
             </StyledDiv>

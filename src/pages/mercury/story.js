@@ -19,14 +19,16 @@ export default function mercuryStory () {
                 
                 <span className='solarObject'></span>
                 
-                <section className='story'>   
-                    <h1>
-                        Mercury
-                    </h1>
+                <section className='story'> 
+                    <Link to='../' > 
+                        <h1>
+                            Mercury
+                        </h1>
+                    </Link>   
                     <article>
-                        <p>Our Mother</p>
-                        <p>Our guide throughout the universe. <br/> All matter will follow the circular flow.</p>
-                        <p>As we go around and around the Milky Way.</p>
+                        <p>The tiniest planet flies around the sun.</p>
+                        <p>It lost it's atosphere to the heat a long time ago, but doesn't mind.</p>
+                        <p>Unlike its siblings, Mercury is fine just flying around the sun.</p>
                     </article>
                 </section> 
             </main>

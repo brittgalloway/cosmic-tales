@@ -19,13 +19,16 @@ export default function mercuryStory () {
                 <span className='solarObject'></span>
                 
                 <section className='story'>   
-                    <h1>
-                        Mercury
-                    </h1>
+                    <Link to='../' > 
+                        <h1>
+                            Jupiter
+                        </h1>
+                    </Link>
                     <article>
-                        <p>Our Mother</p>
-                        <p>Our guide throughout the universe. <br/> All matter will follow the circular flow.</p>
-                        <p>As we go around and around the Milky Way.</p>
+                        <p>The first planet to form.</p>
+                        <p>It grew to an immeasurable size and sucked asteriods, comets and "would-be-planets" into its orbit</p>
+                        <p id='likeSun'>Jupiter wanted to be like the sun.</p>
+                        <p>One day, Jupiter saw a particularly beautiful <span id='callisto'>ice planet</span> approach and trapped it in orbit.</p>
                     </article>
                 </section> 
             </main>

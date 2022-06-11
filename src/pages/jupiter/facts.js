@@ -26,11 +26,11 @@ export default function jupiterFacts () {
                     <span className='solarObject'></span>
                     <Facts
                         name = 'jupiter'
-                        majorMoons = '2'
-                        confirmMoons = '2'
-                        rotation = ' days'
+                        majorMoons = '4'
+                        confirmMoons = '79'
+                        rotation = '10h 55m'
                         revolution = '11.86 years'
-                        unique = 'Jupiter is the largest planet.'
+                        unique = "How can Jupiter's rotation be 10 hours? Figuring out Jupiter's rotation is complicated because it rotates at different speeds at different denisities. The 10 hours is the speed of the core."
                     />
                 </section>
             </StyledDiv>

@@ -20,13 +20,14 @@ export default function earthStory () {
                 <span className='solarObject'></span>
                 
                 <section className='story'>   
-                    <h1>
-                        earth
-                    </h1>
+                    <Link to='../' > 
+                        <h1>
+                            Earth
+                        </h1>
+                    </Link>
                     <article>
-                        <p>Our Mother</p>
-                        <p>Our guide throughout the universe. <br/> All matter will follow the circular flow.</p>
-                        <p>As we go around and around the Milky Way.</p>
+                        <p>The little blue spot, young and full of life.</p>
+                        <p>The only planet agreeable to life as we know it.</p>
                     </article>
                 </section> 
             </main>

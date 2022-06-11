@@ -26,11 +26,11 @@ export default function neptuneFacts () {
                     <span className='solarObject'></span>
                     <Facts
                         name = 'neptune'
-                        majorMoons = '2'
-                        confirmMoons = '2'
-                        rotation = ' days'
-                        revolution = ' days'
-                        unique = 'neptune has ice, and is thought to have been a living planet similar to Earth.'
+                        majorMoons = '1'
+                        confirmMoons = '14'
+                        rotation = '164.8 years'
+                        revolution = '18.5 hours'
+                        unique = ''
                     />
                 </section>
             </StyledDiv>
