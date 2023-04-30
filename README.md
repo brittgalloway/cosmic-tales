@@ -2,13 +2,10 @@
 
 ## Learn about the solar system
 
-### Planet Data
-https://api.le-systeme-solaire.net/en/
-sideralorbit = revolution (Sideral orbital time for body around another one (the Sun or a planet) in earth day.)
-sideralRotation = rotation (Sideral rotation, necessary time to turn around itself, in hour.)
-https://api.le-systeme-solaire.net/rest.php/bodies?data=englishName%2C%20moons%2C%20sideralOrbit%2C%20sideralRotation%2C%20bodyType
+Click on a planet to learn about it.
 
 Thank you for the stars https://codepen.io/johnbgarcia/pen/qqdgGp and https://codepen.io/dannyrb/pen/ORqvey
+
 <p align="center">
   <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
     <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />

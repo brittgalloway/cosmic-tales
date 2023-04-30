@@ -58,20 +58,17 @@ h2 {
   height: var(--diameter);
   top: calc(50% - var(--offset));
   left: calc(50% - var(--offset));
-  // &:hover {
-  //   cursor: pointer;
-  //   & .tooltip-box {
-  //     display: block;
-  //     z-index: 9000;
-  //   }
-  // }
-  // &:active{
-  //   & .tooltip-box {
-  //     display: block;
-  //     z-index: 9000;
-  //   }
 
-  // }
+  &:hover {
+    cursor: pointer;
+  }
+  &:active{
+    & .tooltip-box {
+      display: block;
+      z-index: 9000;
+    }
+
+  }
 }
 @keyframes orbit {
   from {
@@ -108,10 +105,10 @@ h2 {
   background-color: var(--mercury-grey);
   --size: 75px;
   animation: orbit 14.5s linear infinite;
-  // &:hover {
-  //   --offset: calc(4px * 2.5);
-  //   --diameter: calc(8px * 2.5);
-  // }
+  &:hover {
+    --offset: calc(4px * 2.5);
+    --diameter: calc(8px * 2.5);
+  }
 }
 
 #venus {
@@ -121,10 +118,10 @@ h2 {
   background-color: var(--venus-orange);
   --size: 100px;
   animation: orbit 36.7s linear infinite;
-  // &:hover {
-  //   --offset: calc(5px * 2);
-  //   --diameter: calc(10px * 2);
-  // }
+  &:hover {
+    --offset: calc(5px * 2);
+    --diameter: calc(10px * 2);
+  }
 }
 
 #earth {
@@ -134,10 +131,10 @@ h2 {
   background-color: var(--earth-blue);
   --size: 125px;
   animation: orbit 60s linear infinite;
-  // &:hover {
-  //   --offset: calc(5.5px * 2);
-  //   --diameter: calc(11px * 2);
-  // }
+  &:hover {
+    --offset: calc(5.5px * 2);
+    --diameter: calc(11px * 2);
+  }
 }
 
 #mars {
@@ -147,10 +144,10 @@ h2 {
   background-color: var(--mars-red);
   --size: 150px;
   animation: orbit 112.9s linear infinite;
-  // &:hover {
-  //   --offset: calc(4.5px * 2);
-  //   --diameter: calc(9px * 2);
-  // }
+  &:hover {
+    --offset: calc(4.5px * 2);
+    --diameter: calc(9px * 2);
+  }
 }
 
 #jupiter {
@@ -160,10 +157,10 @@ h2 {
   background-color: var(--jupiter-brown);
   --size: 270px;
   animation: orbit 711.6s linear infinite;
-  // &:hover {
-  //   --offset: calc(25px * 1.5);
-  //   --diameter: calc(50px * 1.5);
-  // }
+  &:hover {
+    --offset: calc(25px * 1.5);
+    --diameter: calc(50px * 1.5);
+  }
 }
 
 #saturn {
@@ -173,10 +170,10 @@ h2 {
   background-color: var(--saturn-purple);
   --size: 370px;
   animation: orbit 1767s linear infinite;
-  // &:hover {
-  //   --offset: calc(20px * 1.5);
-  //   --diameter: calc(40px * 1.5);
-  // }
+  &:hover {
+    --offset: calc(20px * 1.5);
+    --diameter: calc(40px * 1.5);
+  }
 }
 
 #uranus {
@@ -186,10 +183,10 @@ h2 {
   background-color: var(--uranus-green);
   --size: 470px;
   animation: orbit 5040s linear infinite;
-  // &:hover {
-  //   --offset: calc(15px * 1.5);
-  //   --diameter: calc(30px * 1.5);
-  // }
+  &:hover {
+    --offset: calc(15px * 1.5);
+    --diameter: calc(30px * 1.5);
+  }
 }
 
 #neptune {
@@ -198,12 +195,12 @@ h2 {
   @include circle;
   background-color: var(--neptune-blue);
   --size: 550px;
-  // animation: orbit  10s linear infinite;
+  animation: orbit  10s linear infinite;
   animation: orbit 9888s linear infinite;
-  // &:hover {
-  //   --offset: calc(13.5px * 1.5);
-  //   --diameter: calc(27px * 1.5);
-  // }
+  &:hover {
+    --offset: calc(13.5px * 1.5);
+    --diameter: calc(27px * 1.5);
+  }
 }
 
 #pluto {
@@ -214,12 +211,12 @@ h2 {
   top: calc(50% - var(--offset));
   left: calc(43% - var(--offset));
   --size: 650px;
-  // animation: orbit  10s linear infinite;
+  animation: orbit  10s linear infinite;
   animation: orbit 14880s linear infinite;
-  // &:hover {
-  //   --offset: calc(3.5px * 2.5);
-  //   --diameter: calc(7px * 2.5);
-  // }
+  &:hover {
+    --offset: calc(3.5px * 2.5);
+    --diameter: calc(7px * 2.5);
+  }
 }
 
 // space objects
@@ -231,9 +228,9 @@ h2 {
   --size: 0px;
   animation: rotate 180s linear infinite;
   z-index: -4;
-  // &:hover {
-  //     border: 10px dotted var(--asteriod-brown);
-  // }
+  &:hover {
+      border: 10px dotted var(--asteriod-brown);
+  }
 }
 @mixin dList {
   padding: 0 2rem;
@@ -274,15 +271,16 @@ h2 {
 }
 
 .tooltip-box {
-  position: fixed;
+  position: absolute;
   width: 17rem;
   background: rgba(0, 0, 0, 0.8);
   color: rgb(210, 252, 255);
   padding: 5px;
   border-radius: 5px;
-  top: 10px;
-  left: 10px;
+  top: 0;
+  left: 100%;
   display: none;
+  margin: 0 10px;
   @include dList();
 }
 
