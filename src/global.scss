@@ -1,0 +1,371 @@
+//VARIABLES
+@import url("https://fonts.googleapis.com/css2?family=Expletus+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Expletus+Sans&family=Lato:wght@300&display=swap");
+:root {
+  --background-color: #2b0758;
+  --sun-yellow: #f2d122;
+  --mercury-grey: #c4c4c4;
+  --venus-orange: #fa8418;
+  --earth-blue: #5f6ef1;
+  --mars-red: #bb0909;
+  --jupiter-brown: #9a6431;
+  --saturn-purple: #79319a;
+  --uranus-green: #43baa4;
+  --neptune-blue: #438fba;
+  --pluto-brown: #826f5e;
+  --asteriod-brown: #79634e;
+  --star-white: #c4c4c4;
+  --titles: "Expletus Sans", cursive;
+  --text: "Lato", sans-serif;
+}
+
+body {
+  z-index: -50;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--background-color);
+  color: white;
+  font-family: var(--text);
+  // overflow: hidden;
+  // opacity: 0.4;
+}
+@mixin headers {
+  font-family: "Expletus Sans", cursive;
+  text-align: center;
+  z-index: -1;
+  width: 100vw;
+  text-shadow: 3px 3px #000000;
+
+}
+h1 {
+  @include headers;
+  font-size: 2.5rem;
+}
+h2 {
+  @include headers;
+  font-size: 2rem;
+}
+.hide {
+  display: none;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+@mixin circle {
+  border-radius: 50%;
+  position: absolute;
+  width: var(--diameter);
+  height: var(--diameter);
+  top: calc(50% - var(--offset));
+  left: calc(50% - var(--offset));
+
+  &:hover {
+    cursor: pointer;
+  }
+  &:active{
+    & .tooltip-box {
+      display: block;
+      z-index: 9000;
+    }
+
+  }
+}
+@keyframes orbit {
+  from {
+    transform: rotate(0deg) translateX(var(--size)) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(var(--size)) rotate(-360deg);
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+//planets
+#sun {
+  --diameter: 88px;
+  --offset: 44px;
+  @include circle;
+  background-color: var(--sun-yellow);
+  box-shadow: 0px 0px 33px 21px rgba(242, 209, 34, 0.17);
+  &:hover {
+    box-shadow: 0px 0px 33px 21px rgba(242, 207, 34, 0.625);
+  }
+}
+
+#mercury {
+  --offset: 4px;
+  --diameter: 8px;
+  @include circle;
+  background-color: var(--mercury-grey);
+  --size: 75px;
+  animation: orbit 14.5s linear infinite;
+  &:hover {
+    --offset: calc(4px * 2.5);
+    --diameter: calc(8px * 2.5);
+  }
+}
+
+#venus {
+  --offset: 5px;
+  --diameter: 10px;
+  @include circle;
+  background-color: var(--venus-orange);
+  --size: 100px;
+  animation: orbit 36.7s linear infinite;
+  &:hover {
+    --offset: calc(5px * 2);
+    --diameter: calc(10px * 2);
+  }
+}
+
+#earth {
+  --offset: 5.5px;
+  --diameter: 11px;
+  @include circle;
+  background-color: var(--earth-blue);
+  --size: 125px;
+  animation: orbit 60s linear infinite;
+  &:hover {
+    --offset: calc(5.5px * 2);
+    --diameter: calc(11px * 2);
+  }
+}
+
+#mars {
+  --offset: 4.5px;
+  --diameter: 9px;
+  @include circle;
+  background-color: var(--mars-red);
+  --size: 150px;
+  animation: orbit 112.9s linear infinite;
+  &:hover {
+    --offset: calc(4.5px * 2);
+    --diameter: calc(9px * 2);
+  }
+}
+
+#jupiter {
+  --offset: 25px;
+  --diameter: 50px;
+  @include circle;
+  background-color: var(--jupiter-brown);
+  --size: 270px;
+  animation: orbit 711.6s linear infinite;
+  &:hover {
+    --offset: calc(25px * 1.5);
+    --diameter: calc(50px * 1.5);
+  }
+}
+
+#saturn {
+  --offset: 20px;
+  --diameter: 40px;
+  @include circle;
+  background-color: var(--saturn-purple);
+  --size: 370px;
+  animation: orbit 1767s linear infinite;
+  &:hover {
+    --offset: calc(20px * 1.5);
+    --diameter: calc(40px * 1.5);
+  }
+}
+
+#uranus {
+  --offset: 15px;
+  --diameter: 30px;
+  @include circle;
+  background-color: var(--uranus-green);
+  --size: 470px;
+  animation: orbit 5040s linear infinite;
+  &:hover {
+    --offset: calc(15px * 1.5);
+    --diameter: calc(30px * 1.5);
+  }
+}
+
+#neptune {
+  --offset: 13.5px;
+  --diameter: 27px;
+  @include circle;
+  background-color: var(--neptune-blue);
+  --size: 550px;
+  animation: orbit  10s linear infinite;
+  animation: orbit 9888s linear infinite;
+  &:hover {
+    --offset: calc(13.5px * 1.5);
+    --diameter: calc(27px * 1.5);
+  }
+}
+
+#pluto {
+  --diameter: 7px;
+  @include circle;
+  background-color: var(--pluto-brown);
+  --offset: 3.5px;
+  top: calc(50% - var(--offset));
+  left: calc(43% - var(--offset));
+  --size: 650px;
+  animation: orbit  10s linear infinite;
+  animation: orbit 14880s linear infinite;
+  &:hover {
+    --offset: calc(3.5px * 2.5);
+    --diameter: calc(7px * 2.5);
+  }
+}
+
+// space objects
+#asteriodBelt {
+  --offset: 169.5px;
+  --diameter: 339px;
+  @include circle;
+  border: 6px dotted var(--asteriod-brown);
+  --size: 0px;
+  animation: rotate 180s linear infinite;
+  z-index: -4;
+  &:hover {
+      border: 10px dotted var(--asteriod-brown);
+  }
+}
+@mixin dList {
+  padding: 0 2rem;
+  font-size: 1.2rem;
+
+  h3{
+    font-size: 1.5rem;
+    text-transform: capitalize;
+  }
+  ul{
+    list-style-type: circle;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+    li{
+      padding-bottom: 10px;
+    }
+  }
+  dt{
+    padding-bottom: 10px;
+    font-weight: bold;
+  }
+  dd{
+    margin-top: -30px;
+    float: right;
+    &:last-of-type{
+      float: none;
+      margin-top: 0;
+      margin-inline-start: 0;
+    }
+  }
+}
+
+
+// tooltip
+.tooltip-container {
+  margin: 0;
+}
+
+.tooltip-box {
+  position: absolute;
+  width: 17rem;
+  background: rgba(0, 0, 0, 0.8);
+  color: rgb(210, 252, 255);
+  padding: 5px;
+  border-radius: 5px;
+  top: 0;
+  left: 100%;
+  display: none;
+  margin: 0 10px;
+  @include dList();
+}
+
+.visible {
+  display: block;
+}
+// MAKING THE STARS
+$starFieldWidth: 2560;
+$starFieldHeight: 2560;
+$starStartOffset: 600px;
+
+$starOneScrollDuration: 3000s;
+$starTwoScrollDuration: 4000s;
+$starThreeScrollDuration: 5000s;
+$numStarOneStars: 1700;
+$numStarTwoStars: 700;
+$numStarThreeStars: 200;
+$numShootingStars: 10;
+
+@function create-stars($n){
+
+  $stars: "#{random($starFieldWidth)}px #{random($starFieldHeight)}px #FFF";
+
+  @for $i from 2 through $n{
+    $stars: "#{$stars} , #{random($starFieldWidth)}px #{random($starFieldHeight)}px #FFF";
+  }
+  @return unquote($stars);
+}
+@mixin star-template($numStars, $starSize, $scrollSpeed){
+  z-index: -10;
+  width: $starSize;
+  height: $starSize;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: create-stars($numStars);
+  // animation: animStar $scrollSpeed linear infinite;
+  &:after{
+    content: " ";
+    top: -$starStartOffset;
+    width: $starSize;
+    height: $starSize;
+    border-radius: 50%;
+    position: absolute;
+    background: transparent;
+    box-shadow: create-stars($numStars);
+    z-index: -10;
+  }  
+}  
+@mixin shooting-star-template($numStars, $starSize, $speed){
+  z-index: -10;
+  width: $starSize;
+  height: calc($starSize + 80px);
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(255,255,255,0), rgba(255,255,255,1));
+  animation: animShootingStar $speed linear infinite;
+}
+.stars{
+  @include star-template($numStarOneStars, 1px, $starOneScrollDuration);
+}
+.stars1{
+  @include star-template($numStarTwoStars, 2px, $starTwoScrollDuration);
+}
+.stars2{
+  @include star-template($numStarThreeStars, 3px, $starThreeScrollDuration);
+}
+.shooting-stars{
+  @include shooting-star-template($numShootingStars, 5px, 5s);
+}
+@keyframes animStar{
+  from{
+    transform: translateY(0px);}
+  to{
+    transform: translateY(-#{$starFieldHeight}px) translateX(-#{$starFieldWidth}px);}
+}
+@keyframes animShootingStar{
+  from{
+    transform: translateY(0px) translateX(0px) rotate(-45deg);
+    opacity: 1;
+    height: 5px;}
+  to{
+    transform: translateY(-#{$starFieldHeight}px) translateX(-#{$starFieldWidth}px) rotate(-45deg);
+    opacity: 1;
+    height: 800px;}
+}
