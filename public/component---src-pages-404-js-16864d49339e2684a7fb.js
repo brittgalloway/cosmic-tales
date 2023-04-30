@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkcosmic_tales=self.webpackChunkcosmic_tales||[]).push([[883],{429:function(e,t,n){n.r(t);var l=n(7294),a=n(1597);t.default=function(){return l.createElement("main",null,l.createElement("title",null,"Not found"),l.createElement("h1",null,"Page not found"),l.createElement("p",null,"I probably didn't make this page yet.",l.createElement(a.Link,{to:"/"},"Go home"),"."))}}}]);
+//# sourceMappingURL=component---src-pages-404-js-16864d49339e2684a7fb.js.map
