@@ -6,6 +6,9 @@ const IndexPage = () => {
 
   return (
     <>
+      <div className="rotate-prompt" role="status">
+        <p>For the best view of the solar system, please rotate your device.</p>
+      </div>
       <header>
         <h1>
           The Solar System

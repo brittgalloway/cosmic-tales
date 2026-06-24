@@ -21,5 +21,14 @@ Cosmic Tales was an exciting CSS experiment that brings the solar system to life
 
 Enjoy exploring the mini solar system, and feel free to make improvements or modifications to further enhance the project.
 
+## Accessibility & Platform Updates
 
+The original CSS-only build relied on hover/click with no keyboard support. This pass added real interactivity without touching the visual design:
 
+- **Keyboard navigation:** Every planet is now a `<button>` instead of a plain `<span>`, so the whole solar system is reachable by Tab and operable with Enter/Space. Each button gets a visible focus ring (`:focus-visible`), and a planet's orbit pauses while it has focus or its popover is open, so the tooltip doesn't drift away mid-read.
+- **Tooltips → native popovers:** The old click-toggled `<div>` tooltip is now a real popover (`popover="auto"` + `aria-label`, wired to its planet via `popovertarget`), giving Esc-to-close and click-outside dismissal for free, with no JS state. It's anchored to its planet with CSS anchor positioning (`position-anchor` / `position-area`) instead of manual offsets, and fades/scales in with `@starting-style` transitions.
+  - Note: React doesn't recognize the `popover`/`popovertarget` HTML attributes as JSX props (a known upstream issue), so these are set via a `ref` callback in `src/components/tooltip.js` rather than as direct props.
+- **Hover/focus transitions:** Planet size and glow changes on hover now also fire on `:focus-visible` and ease smoothly in both directions, instead of snapping instantly.
+- **Mobile landscape support:** Below 900px wide, the layout scales down (`transform: scale(0.55)` on `<main>`) so Pluto's ~1300px-wide orbit fits on a phone screen. In portrait at that size, a "rotate your device" prompt replaces the scene entirely, since the orbit layout isn't usable in a narrow portrait viewport.
+- **Sass modernization:** Replaced the deprecated global `random()`/`unquote()` calls in the starfield generator with their namespaced equivalents (`math.random()`, `string.unquote()`) to clear Dart Sass's legacy-API deprecation warnings.
+- **Dependency upgrade:** Moved from Gatsby 4 / React 17 to Gatsby 5 / React 18 (Gatsby 5's minimum supported React version), and dropped a few unused dependencies (`gatsby-plugin-mdx`, `gatsby-plugin-styled-components`, `styled-components`) that weren't referenced anywhere in `src/`.

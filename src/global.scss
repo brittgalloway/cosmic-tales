@@ -318,6 +318,8 @@ h2 {
   border-radius: 5px;
   border: 1px solid rgba(210, 252, 255, 0.25);
   margin: 0;
+  max-height: 80%;
+  overflow-y: auto;
   @include dList();
 
   position: relative;
@@ -327,6 +329,7 @@ h2 {
   margin: 0 4px;
 
   top: 0;
+
   opacity: 0;
   transform: scale(0.92);
   transition: opacity 0.15s ease, transform 0.15s ease, display 0.15s allow-discrete,
@@ -423,4 +426,75 @@ $numShootingStars: 10;
     transform: translateY(-#{$starFieldHeight}px) translateX(-#{$starFieldWidth}px) rotate(-45deg);
     opacity: 1;
     height: 800px;}
+}
+
+// ROTATE-DEVICE PROMPT
+//
+// Pluto's orbit alone needs ~1300px of width, so this layout only really
+// works in landscape. Rather than visually rotating the page (which would
+// make the user turn their actual phone to read upright text — confusing),
+// we ask them to rotate the *device* and let the layout adapt once they do.
+//
+// Hidden by default; only shown on small screens that are currently
+// portrait. `orientation` here refers to the viewport, which tracks the
+// device's physical rotation.
+.rotate-prompt {
+  display: none;
+}
+
+@media (max-width: 900px) and (orientation: portrait) {
+  .rotate-prompt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: var(--background-color);
+    padding: 2rem;
+    text-align: center;
+
+    p {
+      max-width: 22rem;
+      font-size: 1.1rem;
+    }
+  }
+
+  // The solar system is unusable at this size/orientation, so keep it
+  // (and the starfield) out of the accessibility tree and off-screen
+  // while the prompt is showing, rather than just hiding it visually.
+  header,
+  main,
+  .stars,
+  .stars1,
+  .stars2,
+  .shooting-stars {
+    display: none;
+  }
+}
+
+// MOBILE LANDSCAPE SCALING
+//
+// Even once rotated, a phone in landscape is still much narrower than
+// Pluto's orbit, which needs roughly 1300px of diameter on its own.
+// Common landscape phone widths run from about 800px (smaller phones,
+// e.g. 360x800 portrait rotated) up to ~900px (larger phones). Rather
+// than recompute every planet's --offset/--diameter/--size by hand,
+// scale the whole orbit system as one unit: `main` is the positioning
+// context every planet's `top/left: calc(50% - ...)` resolves against,
+// so shrinking *that* box with `transform: scale()` shrinks every
+// orbit, every planet, and the animation path together, proportionally,
+// for free. 0.55 brings Pluto's full orbit (~1300px) down to roughly
+// 720px, comfortably inside the smallest common landscape width.
+main {
+  position: fixed;
+  inset: 0;
+  overflow: auto;
+}
+
+@media (max-width: 900px) {
+  main {
+    transform: scale(0.55);
+    transform-origin: center center;
+  }
 }
