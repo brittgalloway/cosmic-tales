@@ -1,4 +1,6 @@
 //VARIABLES
+@use "sass:math";
+@use "sass:string";
 @import url("https://fonts.googleapis.com/css2?family=Expletus+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Expletus+Sans&family=Lato:wght@300&display=swap");
 :root {
@@ -52,6 +54,12 @@ h2 {
   height: 0;
 }
 @mixin circle {
+  // Reset <button> chrome so the planet still looks/behaves like the
+  // original plain circle, just with real button semantics underneath.
+  appearance: none;
+  border: none;
+  padding: 0;
+  font: inherit;
   border-radius: 50%;
   position: absolute;
   width: var(--diameter);
@@ -59,15 +67,23 @@ h2 {
   top: calc(50% - var(--offset));
   left: calc(50% - var(--offset));
 
+  // Smoothly grow/glow on the way in AND the way back out, for both
+  // mouse and keyboard interaction.
+  transition: width 0.25s ease, height 0.25s ease, top 0.25s ease,
+    left 0.25s ease, box-shadow 0.25s ease, outline-offset 0.15s ease;
+
   &:hover {
     cursor: pointer;
   }
-  &:active{
-    & .tooltip-box {
-      display: block;
-      z-index: 9000;
-    }
 
+  // Keep the orbit moving for casual mouse hover, but pause it while the
+  // planet has keyboard focus, so the tooltip doesn't fly across the
+  // screen while someone's trying to read it. Also draw a clear focus
+  // ring, since these buttons have no visible chrome of their own.
+  &:focus-visible {
+    animation-play-state: paused;
+    outline: 2px solid var(--star-white);
+    outline-offset: 4px;
   }
 }
 @keyframes orbit {
@@ -93,7 +109,8 @@ h2 {
   @include circle;
   background-color: var(--sun-yellow);
   box-shadow: 0px 0px 33px 21px rgba(242, 209, 34, 0.17);
-  &:hover {
+  &:hover,
+  &:focus-visible {
     box-shadow: 0px 0px 33px 21px rgba(242, 207, 34, 0.625);
   }
 }
@@ -105,7 +122,8 @@ h2 {
   background-color: var(--mercury-grey);
   --size: 75px;
   animation: orbit 14.5s linear infinite;
-  &:hover {
+  &:hover,
+  &:focus-visible {
     --offset: calc(4px * 2.5);
     --diameter: calc(8px * 2.5);
   }
@@ -118,7 +136,8 @@ h2 {
   background-color: var(--venus-orange);
   --size: 100px;
   animation: orbit 36.7s linear infinite;
-  &:hover {
+  &:hover,
+  &:focus-visible {
     --offset: calc(5px * 2);
     --diameter: calc(10px * 2);
   }
@@ -131,7 +150,8 @@ h2 {
   background-color: var(--earth-blue);
   --size: 125px;
   animation: orbit 60s linear infinite;
-  &:hover {
+  &:hover,
+  &:focus-visible {
     --offset: calc(5.5px * 2);
     --diameter: calc(11px * 2);
   }
@@ -144,7 +164,8 @@ h2 {
   background-color: var(--mars-red);
   --size: 150px;
   animation: orbit 112.9s linear infinite;
-  &:hover {
+  &:hover,
+  &:focus-visible {
     --offset: calc(4.5px * 2);
     --diameter: calc(9px * 2);
   }
@@ -157,7 +178,8 @@ h2 {
   background-color: var(--jupiter-brown);
   --size: 270px;
   animation: orbit 711.6s linear infinite;
-  &:hover {
+  &:hover,
+  &:focus-visible {
     --offset: calc(25px * 1.5);
     --diameter: calc(50px * 1.5);
   }
@@ -170,7 +192,8 @@ h2 {
   background-color: var(--saturn-purple);
   --size: 370px;
   animation: orbit 1767s linear infinite;
-  &:hover {
+  &:hover,
+  &:focus-visible {
     --offset: calc(20px * 1.5);
     --diameter: calc(40px * 1.5);
   }
@@ -183,7 +206,8 @@ h2 {
   background-color: var(--uranus-green);
   --size: 470px;
   animation: orbit 5040s linear infinite;
-  &:hover {
+  &:hover,
+  &:focus-visible {
     --offset: calc(15px * 1.5);
     --diameter: calc(30px * 1.5);
   }
@@ -197,7 +221,8 @@ h2 {
   --size: 550px;
   animation: orbit  10s linear infinite;
   animation: orbit 9888s linear infinite;
-  &:hover {
+  &:hover,
+  &:focus-visible {
     --offset: calc(13.5px * 1.5);
     --diameter: calc(27px * 1.5);
   }
@@ -213,7 +238,8 @@ h2 {
   --size: 650px;
   animation: orbit  10s linear infinite;
   animation: orbit 14880s linear infinite;
-  &:hover {
+  &:hover,
+  &:focus-visible {
     --offset: calc(3.5px * 2.5);
     --diameter: calc(7px * 2.5);
   }
@@ -228,7 +254,8 @@ h2 {
   --size: 0px;
   animation: rotate 180s linear infinite;
   z-index: -4;
-  &:hover {
+  &:hover,
+  &:focus-visible {
       border: 10px dotted var(--asteriod-brown);
   }
 }
@@ -266,26 +293,57 @@ h2 {
 
 
 // tooltip
-.tooltip-container {
-  margin: 0;
+//
+// The wrapper span just registers a CSS anchor name so the popover knows
+// which planet it belongs to; it doesn't participate in layout itself.
+.planet-wrap {
+  display: contents;
+}
+
+.planet {
+  anchor-name: var(--anchor-name);
+}
+
+// When this planet's popover is open, freeze its orbit so the tooltip
+// (anchored to the planet) doesn't drag across the screen mid-read.
+.planet-wrap:has(.tooltip-box:popover-open) .planet {
+  animation-play-state: paused;
 }
 
 .tooltip-box {
-  position: absolute;
   width: 17rem;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.85);
   color: rgb(210, 252, 255);
   padding: 5px;
   border-radius: 5px;
-  top: 0;
-  left: 100%;
-  display: none;
-  margin: 0 10px;
+  border: 1px solid rgba(210, 252, 255, 0.25);
+  margin: 0;
+  max-height: 80%;
+  overflow-y: auto;
   @include dList();
-}
 
-.visible {
-  display: block;
+  position: relative;
+  position-anchor: var(--anchor-name);
+  position-area: right;
+  position-try-fallbacks: flip-inline, flip-block;
+  margin: 0 4px;
+
+  top: 0;
+
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.15s ease, transform 0.15s ease, display 0.15s allow-discrete,
+    overlay 0.15s allow-discrete;
+
+  &:popover-open {
+    opacity: 1;
+    transform: scale(1);
+
+    @starting-style {
+      opacity: 0;
+      transform: scale(0.92);
+    }
+  }
 }
 // MAKING THE STARS
 $starFieldWidth: 2560;
@@ -302,12 +360,12 @@ $numShootingStars: 10;
 
 @function create-stars($n){
 
-  $stars: "#{random($starFieldWidth)}px #{random($starFieldHeight)}px #FFF";
+  $stars: "#{math.random($starFieldWidth)}px #{math.random($starFieldHeight)}px #FFF";
 
   @for $i from 2 through $n{
-    $stars: "#{$stars} , #{random($starFieldWidth)}px #{random($starFieldHeight)}px #FFF";
+    $stars: "#{$stars} , #{math.random($starFieldWidth)}px #{math.random($starFieldHeight)}px #FFF";
   }
-  @return unquote($stars);
+  @return string.unquote($stars);
 }
 @mixin star-template($numStars, $starSize, $scrollSpeed){
   z-index: -10;
@@ -368,4 +426,75 @@ $numShootingStars: 10;
     transform: translateY(-#{$starFieldHeight}px) translateX(-#{$starFieldWidth}px) rotate(-45deg);
     opacity: 1;
     height: 800px;}
+}
+
+// ROTATE-DEVICE PROMPT
+//
+// Pluto's orbit alone needs ~1300px of width, so this layout only really
+// works in landscape. Rather than visually rotating the page (which would
+// make the user turn their actual phone to read upright text — confusing),
+// we ask them to rotate the *device* and let the layout adapt once they do.
+//
+// Hidden by default; only shown on small screens that are currently
+// portrait. `orientation` here refers to the viewport, which tracks the
+// device's physical rotation.
+.rotate-prompt {
+  display: none;
+}
+
+@media (max-width: 900px) and (orientation: portrait) {
+  .rotate-prompt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: var(--background-color);
+    padding: 2rem;
+    text-align: center;
+
+    p {
+      max-width: 22rem;
+      font-size: 1.1rem;
+    }
+  }
+
+  // The solar system is unusable at this size/orientation, so keep it
+  // (and the starfield) out of the accessibility tree and off-screen
+  // while the prompt is showing, rather than just hiding it visually.
+  header,
+  main,
+  .stars,
+  .stars1,
+  .stars2,
+  .shooting-stars {
+    display: none;
+  }
+}
+
+// MOBILE LANDSCAPE SCALING
+//
+// Even once rotated, a phone in landscape is still much narrower than
+// Pluto's orbit, which needs roughly 1300px of diameter on its own.
+// Common landscape phone widths run from about 800px (smaller phones,
+// e.g. 360x800 portrait rotated) up to ~900px (larger phones). Rather
+// than recompute every planet's --offset/--diameter/--size by hand,
+// scale the whole orbit system as one unit: `main` is the positioning
+// context every planet's `top/left: calc(50% - ...)` resolves against,
+// so shrinking *that* box with `transform: scale()` shrinks every
+// orbit, every planet, and the animation path together, proportionally,
+// for free. 0.55 brings Pluto's full orbit (~1300px) down to roughly
+// 720px, comfortably inside the smallest common landscape width.
+main {
+  position: fixed;
+  inset: 0;
+  overflow: auto;
+}
+
+@media (max-width: 900px) {
+  main {
+    transform: scale(0.55);
+    transform-origin: center center;
+  }
 }
