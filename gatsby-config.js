@@ -1,14 +1,14 @@
 module.exports = {
   siteMetadata: {
     title: `The Solar System | Learn About Our Planets`,
-    siteUrl: `https://www.sleepygallows.com/webdev`
+    siteUrl: `https://brittgalloway.github.io/cosmic-tales/`
   },
-  plugins: ["gatsby-plugin-sass", "gatsby-plugin-react-helmet", "gatsby-plugin-sitemap","gatsby-plugin-styled-components", {
+  plugins: ["gatsby-plugin-sass", "gatsby-plugin-react-helmet", "gatsby-plugin-sitemap", {
     resolve: 'gatsby-plugin-manifest',
     options: {
       "icon": "src/images/logo.png"
     }
-  }, "gatsby-plugin-mdx", {
+  }, {
     resolve: 'gatsby-source-filesystem',
     options: {
       "name": "pages",
