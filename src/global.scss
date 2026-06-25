@@ -253,9 +253,8 @@ h2 {
   --size: 0px;
   animation: rotate 180s linear infinite;
   z-index: -4;
-  &:hover,
-  &:focus-visible {
-      border: 10px dotted var(--asteriod-brown);
+  &:hover {
+      cursor: default;
   }
 }
 @mixin dList {
@@ -492,7 +491,6 @@ main {
 
 @media (max-width: 900px) {
   main {
-    transform: scale(0.55);
-    transform-origin: center center;
+    overflow: auto;
   }
 }
