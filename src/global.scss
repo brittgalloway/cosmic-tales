@@ -29,13 +29,12 @@ body {
   color: white;
   font-family: var(--text);
   // overflow: hidden;
-  // opacity: 0.4;
 }
 @mixin headers {
   font-family: "Expletus Sans", cursive;
   text-align: center;
   z-index: -1;
-  width: 100vw;
+  width: 100%;
   text-shadow: 3px 3px #000000;
 
 }
@@ -489,7 +488,6 @@ $numShootingStars: 10;
 main {
   position: fixed;
   inset: 0;
-  overflow: auto;
 }
 
 @media (max-width: 900px) {
