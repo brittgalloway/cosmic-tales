@@ -472,18 +472,7 @@ $numShootingStars: 10;
 }
 
 // MOBILE LANDSCAPE SCALING
-//
-// Even once rotated, a phone in landscape is still much narrower than
-// Pluto's orbit, which needs roughly 1300px of diameter on its own.
-// Common landscape phone widths run from about 800px (smaller phones,
-// e.g. 360x800 portrait rotated) up to ~900px (larger phones). Rather
-// than recompute every planet's --offset/--diameter/--size by hand,
-// scale the whole orbit system as one unit: `main` is the positioning
-// context every planet's `top/left: calc(50% - ...)` resolves against,
-// so shrinking *that* box with `transform: scale()` shrinks every
-// orbit, every planet, and the animation path together, proportionally,
-// for free. 0.55 brings Pluto's full orbit (~1300px) down to roughly
-// 720px, comfortably inside the smallest common landscape width.
+
 main {
   position: fixed;
   inset: 0;
